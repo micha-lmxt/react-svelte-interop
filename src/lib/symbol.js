@@ -1,0 +1,1 @@
+export const SvelteSlotInReact = Symbol("Svelte Slot in React");
