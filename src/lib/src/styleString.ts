@@ -34,3 +34,13 @@ export const StyleString = (k: { [key: string]: string }) => {
             ((typeof val != 'number' || IS_NON_DIMENSIONAL.test(key)) ? val : (val + "px"))
     }).join(";");
 }
+export const UpcasePropToDash = (k:{[key:string]:any}) => {
+    if (!k) {
+        return {};
+    }
+    return Object.entries(k).reduce((p,v) => {
+        const [key, val] = v;
+        p[key.replace(/([A-Z])/g, "-$1").toLowerCase()] = val;
+        return p;
+    },{} as any);
+}
